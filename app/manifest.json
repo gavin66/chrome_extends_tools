@@ -19,7 +19,7 @@
       "64": "vendor/images/icon64.png",
       "128": "vendor/images/icon128.png"
     },
-    "default_title": "工具大杂烩"
+    "default_title": "Toolkit-工具箱"
   },
   "content_security_policy": "style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-eval' https://cdn.jsdelivr.net; object-src 'self' ;"
 }
