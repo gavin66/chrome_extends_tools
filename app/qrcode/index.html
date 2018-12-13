@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>二维码生成器</title>
+    <link rel="stylesheet" href="../vendor/element/index.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="app">
+        <el-row>
+            <el-col :span="12" :offset="6" style="text-align: center">
+                <el-input
+                    type="textarea"
+                    :autosize="{ minRows: 10}"
+                    placeholder="请输入二维码内容"
+                    v-model="inputText">
+                </el-input>
+        
+                <el-button type="primary" size="small" @click="build">生成二维码</el-button>
+                <el-button type="primary" size="small" @click="downloadBatch">批量下载二维码</el-button>
+                <el-button type="primary" size="small" @click="clearQr" >清空二维码</el-button>
+                <el-button type="primary" size="small" @click="clearInput" >清空输入框内容</el-button>
+
+            </el-col>
+        </el-row>
+        <el-row>
+            <el-col :span="6" v-for="(image, index) in images" :key="index" >
+                <el-card :body-style="{ padding: '0px' }" class="qr-card">
+                    <div class="qrcode"><qriously :value="image.text" :size="image.size"/></div>
+                    <div style="padding: 14px;">
+                        <span class="qr-cnt">{{ image.content }}</span>
+                        <div class="bottom clearfix">
+                            <el-button type="text" class="button" @click="downloadClick" ref="qr-cvs-btn">下载</el-button>
+                        </div>
+                    </div>
+                </el-card>
+            </el-col>
+        </el-row>
+    </div>
+
+    <script src="../vendor/vue.js"></script>
+    <script src="../vendor/element/index.js"></script>
+    <script src="../vendor/vue-qriously.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

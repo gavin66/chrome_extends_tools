@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>OCR 文字识别</title>
+    <link rel="stylesheet" href="../vendor/element/index.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="app">
+        <el-row>
+            <el-col :span="8" style="text-align: center">
+                <div class="ocr-image" @click="handleClick">
+                    <span class="icon">
+                        <template v-if="image.url">
+                            <img :src="image.url" alt="图片" width="100%" height="100%">             
+                        </template>
+                        <template v-else>
+                            选取图片
+                            <!-- <i class="el-icon-zoom-in"></i> -->
+                        </template>
+                    </span>
+                    <input type="file" class="input" @change='handleChange' ref='input'>
+                </div>
+
+                <template v-if="image.url">
+                        <div style="margin: 10px 0">
+                            <el-button type="primary" size="small" @click="preview">识别图预览</el-button>
+                            <el-button type="primary" size="small" @click="build">识别</el-button>
+                            <el-button type="primary" size="small" @click="clear">清除</el-button>
+                        </div>
+
+                        <el-select v-model="language" placeholder="选取识别语言" style="width: 300px">
+                            <el-option
+                                v-for="item in languages"
+                                :key="item.lang"
+                                :label="item.comment"
+                                :value="item.lang">
+                                <span style="float: left">{{ item.comment }}</span>
+                                <span style="float: right; color: #8492a6; font-size: 13px">{{ item.language }}</span>
+                            </el-option>
+                        </el-select>
+                </template>
+
+                <div>
+                    <el-dialog :visible.sync="imageDialogVisible">
+                        <img width="100%" :src="image.url">
+                    </el-dialog>
+                </div>
+                
+            </el-col>
+            <el-col :span="12">
+                <el-input type="textarea" :autosize="{ minRows: 20}" placeholder="识别结果" v-model="inputText">
+            </el-col>
+        </el-row>
+
+    </div>
+</body>
+
+<script src="../vendor/vue.js"></script>
+<script src="../vendor/element/index.js"></script>
+<script src="../vendor/tesseract/tesseract.js"></script>
+<script src="index.js"></script>
+
+</html>

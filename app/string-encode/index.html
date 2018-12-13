@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>字符串编解码</title>
+    <link rel="stylesheet" href="../vendor/element/index.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="app">
+        <el-row>
+            <el-col :span="12" :offset="6" style="text-align: center">
+                <el-input
+                    type="textarea"
+                    :autosize="{ minRows: 15}"
+                    placeholder="请填入需加密的字符串"
+                    v-model="inputText">
+                </el-input>
+                
+                <el-radio-group v-model="choose" style="margin: 10px 0">
+                    <el-radio label='base64_encode'>Base64 加密</el-radio>
+                    <el-radio label='base64_decode'>Base64 解密</el-radio>
+                    <el-radio label='unicode_encode'>Unicode 加密</el-radio>
+                    <el-radio label='unicode_decode'>Unicode 解密</el-radio>
+                </el-radio-group>
+                
+                <div style="margin: 10px 0">
+                    <el-button type="primary" size="small" @click="build">生成</el-button>
+                    <el-button type="primary" size="small" @click="clear">清空</el-button>
+                </div>
+                
+                <el-input
+                    type="textarea"
+                    :autosize="{ minRows: 15}"
+                    placeholder="这里是运行结果"
+                    v-model="outText">
+                </el-input>
+
+            </el-col>
+        </el-row>
+    </div>
+</body>
+
+<script src="../vendor/vue.js"></script>
+<script src="../vendor/element/index.js"></script>
+<script src="index.js"></script>
+
+</html>

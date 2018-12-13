@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+#app{
+    width: 130px;
+    font-size: 14px;
+    user-select: none;
+    background-color: rgb(34, 44, 49);
+}
+
+#app > div.title{
+    color: black;
+    background-color: rgb(252, 71, 65);
+}
+
+/* 99 65 28 */
+ul.list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.list > li {
+    padding: 5px 0;
+    cursor: pointer;
+    color: rgb(231, 226, 220);
+    background-color: rgb(99, 65, 28);
+    border-top: 1px dashed;
+}
+ul.list > li:first-child{
+    border-top: none;
+}
+
+ul.list > li:hover{
+    color: white;
+    background-color: rgb(253, 149, 38);
+}

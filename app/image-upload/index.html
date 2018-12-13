@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>新浪微博图床</title>
+    <link rel="stylesheet" href="../vendor/element/index.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="app">
+        <el-row>
+            
+            <el-col :span="8" :offset="1" style="margin-top: 30px">
+                <el-upload class="upload-demo" drag action="http://picupload.service.weibo.com/interface/pic_upload.php?ori=1&mime=image%2Fjpeg&data=base64&url=0&markpos=1&logo=&nick=0&marks=1&app=miniblog"
+                    :show-file-list="true" multiple :auto-upload=true list-type="picture" :http-request="handleUpload" :on-success="handleSuccess"
+                    :on-error="handleError">
+                    <i class="el-icon-upload"></i>
+                    <div class="el-upload__text">将文件拖到此处，或
+                        <em>点击上传</em>
+                    </div>
+                    <!-- <div class="el-upload__tip" slot="tip">只能上传jpg/png文件，且不超过500kb</div> -->
+                </el-upload>
+            </el-col>
+
+            <el-col :span="12" style="margin-top: 30px">
+                <el-radio-group v-model="select" @change="selectChange" >
+                    <el-radio-button label="thumbnail">缩略图</el-radio-button>
+                    <el-radio-button label="bmiddle">中等尺寸</el-radio-button>
+                    <el-radio-button label="large">原图</el-radio-button>
+                </el-radio-group>
+
+                <el-form  label-width="80px" style="margin-top: 30px">
+                    <el-form-item label="图片地址">
+                        <el-input v-model="picture"></el-input>
+                    </el-form-item>
+                    <el-form-item label="HTML">
+                        <el-input v-model="html"></el-input>
+                    </el-form-item>
+                    <el-form-item label="Markdown">
+                        <el-input v-model="markdown"></el-input>
+                    </el-form-item>
+                </el-form>
+            </el-col>
+
+        </el-row>
+    </div>
+</body>
+
+<script src="../vendor/vue.js"></script>
+<script src="../vendor/element/index.js"></script>
+<script src="index.js"></script>
+
+</html>

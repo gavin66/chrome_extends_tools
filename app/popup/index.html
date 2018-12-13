@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>popup</title>
+    <link rel="stylesheet" href="../vendor/element/index.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="title">Toolkit-工具箱(v0.4.0)</div>
+        <ul class="list">
+            <li @click="createTab('../string-encode/index.html')">字符串编码</li>
+            <li @click="createTab('../qrcode/index.html')">二维码生成器</li>
+            <li @click="createTab('../image-upload/index.html')">微博图床</li>
+            <li @click="createTab('../ocr/index.html')">OCR 文字识别</li>
+        </ul>
+    </div>
+</body>
+
+<script src="../vendor/vue.js"></script>
+<script src="../vendor/element/index.js"></script>
+<script src="index.js"></script>
+
+</html>
