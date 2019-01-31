@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>随机数生成器</title>
+    <link rel="stylesheet" href="../vendor/element/index.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="app" style="margin-top: 50px;">
+        <el-row>
+            <el-col :span="12" :offset="6">
+                <div class="one-row">
+                    <span class="label">生成数量：</span>
+                    <el-input
+                      v-model="count">
+                    </el-input>
+                </div>
+                <div class="one-row">
+                        <el-switch
+                        style="display: block"
+                        v-model="repeated"
+                        active-color="#13ce66"
+                        inactive-color="#ff4949"
+                        active-text="可重复"
+                        inactive-text="不可重复">
+                      </el-switch>
+                </div>
+                <div class="one-row">
+                    <span class="label">最小值：</span>
+                    <el-input
+                      v-model="min">
+                    </el-input>
+                    <span class="label">最大值：</span>
+                    <el-input
+                      v-model="max">
+                    </el-input>
+                    <el-button type="primary" plain style="margin-left: 10px" @click="build">生成</el-button>
+                </div>
+                <el-slider v-model="size" :min="16" :max="100" :step="2" @change="sizeChange"></el-slider>
+                <el-card class="box-card">
+                    {{ result }}
+                </el-card>
+
+            </el-col>
+        </el-row>
+    </div>
+</body>
+
+<script src="../vendor/vue.js"></script>
+<script src="../vendor/element/index.js"></script>
+<script src="index.js"></script>
+
+</html>
