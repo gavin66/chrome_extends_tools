@@ -6,6 +6,7 @@ body{
 
 #app{
     width: 130px;
+    /* height: 250px; */
     font-size: 14px;
     user-select: none;
     background-color: rgb(34, 44, 49);
@@ -16,7 +17,6 @@ body{
     background-color: rgb(252, 71, 65);
 }
 
-/* 99 65 28 */
 ul.list{
     list-style: none;
     padding: 0;

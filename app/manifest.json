@@ -1,11 +1,12 @@
 {
   "manifest_version": 2,
   "name": "Toolkit-工具箱",
-  "version": "0.4.0",
+  "version": "0.6.1",
   "description": "工具集合,为开发者提供的开发工具和为普通用户提供的上网便利工具",
   "permissions": [
-    "tabs",
-    "*://*/"
+    "storage",
+    "http://*.weibo.com/",
+    "https://*.weibo.com/"
   ],
   "background": {
     "scripts": [
@@ -21,5 +22,23 @@
     },
     "default_title": "Toolkit-工具箱"
   },
+  "options_page": "options/index.html",
+  "web_accessible_resources": [],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*",
+        "file://*/*"
+      ],
+      "js": [
+        "vendor/vue.js",
+        "vendor/vue-json-pretty/vue-json-pretty.js",
+        "json-format/content-script.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": false
+    }
+  ],
   "content_security_policy": "style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-eval' https://cdn.jsdelivr.net; object-src 'self' ;"
 }

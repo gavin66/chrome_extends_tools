@@ -4,25 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <title>popup</title>
-    <link rel="stylesheet" href="../vendor/element/index.css">
+    <!-- <link rel="stylesheet" href="../vendor/element/index.css"> -->
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
     <div id="app">
-        <div class="title">Toolkit-工具箱(v0.4.0)</div>
+        <div class="title">Toolkit(v{{manifest.version}})</div>
         <ul class="list">
-            <li @click="createTab('../string-encode/index.html')">字符串编码</li>
-            <li @click="createTab('../qrcode/index.html')">二维码生成器</li>
-            <li @click="createTab('../image-upload/index.html')">微博图床</li>
-            <li @click="createTab('../ocr/index.html')">OCR 文字识别</li>
-            <li @click="createTab('../random/index.html')">随机数生成器</li>
+            <li v-for="(value,key) in menus" @click="createTab(value[1])">{{value[0]}}</li>
         </ul>
     </div>
 </body>
 
 <script src="../vendor/vue.js"></script>
-<script src="../vendor/element/index.js"></script>
+<!-- <script src="../vendor/element/index.js"></script> -->
 <script src="index.js"></script>
 
 </html>

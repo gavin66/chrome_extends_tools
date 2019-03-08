@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Json格式化</title>
+    <link rel="stylesheet" href="../vendor/element/index.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="app">
+        <el-row>
+            <el-col :span="7" >
+                <el-input
+                    type="textarea"
+                    :autosize="{ minRows: 40}"
+                    placeholder="请填入 json 字符串"
+                    v-model="json">
+                </el-input>
+            </el-col>
+            <el-col :span="12" :offset="1">
+                <vue-json-pretty
+                    :data="jsonObject"
+                    :path="'data'"
+                    :show-length="true"
+                    :path-checked="[]"
+                    :path-selectable="((path, data) => true)"
+                    :selectable-type="'tree'"
+                    @click="handleClick">
+                </vue-json-pretty>
+            </el-col>
+        </el-row>
+    </div>
+</body>
+
+<script src="../vendor/vue.js"></script>
+<script src="../vendor/vue-json-pretty/vue-json-pretty.js"></script>
+<script src="../vendor/element/index.js"></script>
+<script src="index.js"></script>
+</html>

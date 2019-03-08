@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>配置</title>
+    <link rel="stylesheet" href="../vendor/element/index.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="app">
+        <el-row class="menus-row">
+            <el-col :span="12" :offset="6">
+                <el-checkbox-group v-model="menusChecked">
+                    <el-checkbox v-for="(value, key) in menus" :label="key" :key="key">{{value}}</el-checkbox>
+                </el-checkbox-group>
+            </el-col>
+        </el-row>
+        <el-row class="options-row">
+            <el-col :span="12" :offset="6">
+                <el-checkbox-group v-model="optionsChecked">
+                    <el-checkbox v-for="(value, key) in options" :label="key" :key="key">{{value}}</el-checkbox>
+                </el-checkbox-group>
+            </el-col>
+        </el-row>
+        <el-row class="buttons-row">
+            <el-col :span="12" :offset="6">
+                <el-button type="primary" @click="confirm">确定</el-button>
+                <el-button type="info" @click="close">关闭</el-button>
+            </el-col>
+        </el-row>
+    </div>
+</body>
+
+<script src="../vendor/vue.js"></script>
+<script src="../vendor/element/index.js"></script>
+<script src="index.js"></script>
+
+</html>
